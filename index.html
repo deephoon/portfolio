@@ -1,0 +1,1243 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>정재훈 | Data & Product Portfolio</title>
+    <style>
+        @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --blue: #3182F6;
+            --black: #111;
+            --dark: #0A0A0A;
+            --g900: #333;
+            --g600: #666;
+            --g400: #888;
+            --g300: #ccc;
+            --g100: #F5F5F5;
+            --g50: #F9F9F9;
+            --white: #FFF;
+            --max-w: 1200px;
+            --sp: 120px;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--black);
+            background: var(--white);
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+            word-break: keep-all;
+        }
+
+        .sec {
+            padding: var(--sp) max(24px, 6vw);
+        }
+
+        .inner {
+            max-width: var(--max-w);
+            margin: 0 auto;
+        }
+
+        /* ── NAV ── */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 16px max(24px, 6vw);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+            transition: 0.3s;
+        }
+
+        .nav-logo {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--black);
+            text-decoration: none;
+        }
+
+        .nav-logo span {
+            color: var(--blue);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+        }
+
+        .nav-links a {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--g600);
+            text-decoration: none;
+            transition: 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--blue);
+        }
+
+        /* ── HERO ── */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(180deg, #D6E9F8 0%, #FFF 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-ct {
+            position: relative;
+            z-index: 1;
+            padding: 0 24px;
+        }
+
+        .hero-label {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--blue);
+            letter-spacing: 0.08em;
+            margin-bottom: 24px;
+        }
+
+        .hero h1 {
+            font-size: clamp(36px, 6vw, 56px);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+            margin-bottom: 24px;
+            color: var(--black);
+        }
+
+        .hero h1 .hl {
+            color: var(--blue);
+        }
+
+        .hero-sub {
+            font-size: clamp(16px, 2.5vw, 22px);
+            font-weight: 400;
+            line-height: 1.7;
+            color: var(--g900);
+            max-width: 620px;
+            margin: 0 auto 40px;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 24px;
+            border-radius: 9999px;
+            font-size: 16px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: 0.3s;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-p {
+            background: var(--blue);
+            color: #fff;
+        }
+
+        .btn-p:hover {
+            background: #1B6CE5;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(49, 130, 246, 0.3);
+        }
+
+        .btn-s {
+            background: rgba(0, 0, 0, 0.06);
+            color: var(--black);
+        }
+
+        .btn-s:hover {
+            background: rgba(0, 0, 0, 0.1);
+        }
+
+        /* ── ABOUT ── */
+        .about {
+            background: var(--white);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 64px;
+            align-items: center;
+        }
+
+        .about-img-wrap {
+            position: relative;
+            border-radius: 24px;
+            overflow: hidden;
+            aspect-ratio: 1/1;
+            background: var(--g100);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+        }
+
+        .about-img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .about-text .label {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--blue);
+            margin-bottom: 16px;
+        }
+
+        .about-text h2 {
+            font-size: clamp(28px, 5vw, 48px);
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 32px;
+            letter-spacing: -0.02em;
+        }
+
+        .about-text .desc {
+            font-size: 16px;
+            line-height: 1.8;
+            color: var(--g600);
+            margin-bottom: 20px;
+        }
+
+        .about-text .hi {
+            color: var(--black);
+            font-weight: 600;
+        }
+
+        /* ── PROJECTS ── */
+        .projects {
+            background: var(--white);
+        }
+
+        .slabel {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--blue);
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        .stitle {
+            font-size: clamp(32px, 5vw, 48px);
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 80px;
+            letter-spacing: -0.02em;
+        }
+
+        .proj {
+            margin-bottom: 160px;
+        }
+
+        .proj:last-child {
+            margin-bottom: 0;
+        }
+
+        .proj-row {
+            display: grid;
+            grid-template-columns: 40% 1fr;
+            gap: 64px;
+            align-items: center;
+        }
+
+        .proj-text .proj-label {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--blue);
+            margin-bottom: 12px;
+        }
+
+        .proj-text h3 {
+            font-size: clamp(26px, 3vw, 36px);
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 12px;
+        }
+
+        .proj-text .proj-sub {
+            font-size: 16px;
+            color: var(--g600);
+            line-height: 1.7;
+            margin-bottom: 40px;
+        }
+
+        /* 키워드 강조 */
+        .toss-kw {
+            font-size: clamp(24px, 4vw, 36px);
+            font-weight: 700;
+            line-height: 1.4;
+            margin-bottom: 40px;
+            letter-spacing: -0.02em;
+        }
+
+        .toss-kw span {
+            display: block;
+        }
+
+        .toss-kw .tc-b {
+            color: var(--blue);
+        }
+
+        .toss-kw .tc-g {
+            color: var(--g300);
+        }
+
+        .detail-blk {
+            margin-bottom: 28px;
+        }
+
+        .detail-blk .dl {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--g400);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-bottom: 10px;
+        }
+
+        .detail-blk p {
+            font-size: 15px;
+            color: var(--g600);
+            line-height: 1.7;
+        }
+
+        .proj-links {
+            margin-top: 40px;
+        }
+
+        .proj-links a {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--blue);
+            text-decoration: none;
+            padding: 14px 28px;
+            border-radius: 9999px;
+            background: rgba(49, 130, 246, 0.08);
+            transition: 0.2s;
+        }
+
+        .proj-links a:hover {
+            background: rgba(49, 130, 246, 0.15);
+        }
+
+        /* 비주얼 오버랩 */
+        .proj-visual {
+            position: relative;
+            border-radius: 24px;
+            background: var(--g50);
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+            overflow: hidden;
+        }
+
+        .o-img {
+            position: absolute;
+            border-radius: 20px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
+            transition: transform 0.5s ease;
+            object-fit: cover;
+        }
+
+        .proj-visual:hover .o-img:nth-child(1) {
+            transform: translateY(-8px);
+        }
+
+        .proj-visual:hover .o-img:nth-child(2) {
+            transform: translateY(8px);
+        }
+
+        .proj-visual:hover .o-img:nth-child(3) {
+            transform: translateY(-4px) scale(1.02);
+        }
+
+        /* 따따 (3장) */
+        .w-tta .i1 {
+            width: 45%;
+            top: 5%;
+            left: 10%;
+            z-index: 2;
+            border-radius: 36px;
+        }
+
+        .w-tta .i2 {
+            width: 45%;
+            bottom: -5%;
+            right: 10%;
+            z-index: 3;
+            border-radius: 36px;
+        }
+
+        .w-tta .i3 {
+            width: 60%;
+            top: 15%;
+            left: 25%;
+            z-index: 1;
+            opacity: 0.8;
+            border-radius: 36px;
+        }
+
+        /* 선배챗 (3장) */
+        .w-sun .i1 {
+            width: 42%;
+            top: 10%;
+            left: 5%;
+            z-index: 3;
+            border-radius: 32px;
+        }
+
+        .w-sun .i2 {
+            width: 42%;
+            bottom: 5%;
+            right: 5%;
+            z-index: 2;
+            border-radius: 32px;
+        }
+
+        .w-sun .i3 {
+            width: 45%;
+            top: 20%;
+            left: 28%;
+            z-index: 1;
+            opacity: 0.9;
+            border-radius: 32px;
+        }
+
+        /* 조달머신 (2장) */
+        .w-jo .i1 {
+            width: 65%;
+            top: 10%;
+            left: 5%;
+            z-index: 2;
+        }
+
+        .w-jo .i2 {
+            width: 65%;
+            bottom: 10%;
+            right: 5%;
+            z-index: 1;
+        }
+
+        /* 슈토피아 (3장) */
+        .w-su .i1 {
+            width: 42%;
+            top: 10%;
+            left: 5%;
+            z-index: 3;
+            border-radius: 12px;
+        }
+
+        .w-su .i2 {
+            width: 42%;
+            bottom: 5%;
+            right: 5%;
+            z-index: 2;
+            border-radius: 12px;
+        }
+
+        .w-su .i3 {
+            width: 45%;
+            top: 20%;
+            left: 28%;
+            z-index: 1;
+            opacity: 0.9;
+            border-radius: 12px;
+        }
+
+        /* EV 다크 테마 */
+        .proj.dark-theme {
+            background: var(--dark);
+            color: #fff;
+            padding: 100px 60px;
+            border-radius: 40px;
+            margin: 0 calc(-1 * min(60px, 8vw)) 160px;
+            width: calc(100% + min(120px, 16vw));
+        }
+
+        .proj.dark-theme .proj-text h3 {
+            color: #fff;
+        }
+
+        .proj.dark-theme .proj-text .proj-sub,
+        .proj.dark-theme .detail-blk p {
+            color: var(--g400);
+        }
+
+        .proj.dark-theme .proj-visual {
+            background: none;
+        }
+
+        .proj.dark-theme .proj-links a {
+            background: var(--blue);
+            color: #fff;
+        }
+
+        .proj.dark-theme .proj-links a:hover {
+            background: #1B6CE5;
+        }
+
+        /* ── CAPABILITIES ── */
+        .caps {
+            background: var(--g50);
+        }
+
+        .cap-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 48px;
+            margin-top: 64px;
+        }
+
+        .capcard {
+            background: transparent;
+        }
+
+        /* 아이콘 부드러운 글래스모피즘 계열 스타일 변경 */
+        .capcard .cap-ic {
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, #F4F8FC 0%, #E3EFFF 100%);
+            border: 1px solid rgba(49, 130, 246, 0.15);
+            box-shadow: 0 8px 16px rgba(49, 130, 246, 0.08), inset 0 2px 4px rgba(255, 255, 255, 0.8);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+            font-size: 32px;
+        }
+
+        .capcard h3 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: var(--black);
+        }
+
+        .capcard p {
+            font-size: 15px;
+            color: var(--g600);
+            line-height: 1.7;
+        }
+
+        /* ── EXPERIENCE ── */
+        .experience {
+            background: var(--white);
+        }
+
+        .exp-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 24px;
+            margin-top: 64px;
+        }
+
+        .ecard {
+            background: var(--white);
+            border: 1px solid #E5E8EB;
+            border-radius: 24px;
+            padding: 32px;
+            transition: 0.3s;
+        }
+
+        .ecard:hover {
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.06);
+            transform: translateY(-6px);
+            border-color: transparent;
+        }
+
+        .ecard .ep {
+            font-size: 13px;
+            color: var(--blue);
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .ecard h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            line-height: 1.4;
+        }
+
+        .ecard .er {
+            font-size: 14px;
+            color: var(--g400);
+            margin-bottom: 16px;
+        }
+
+        .ecard p {
+            font-size: 14px;
+            color: var(--g600);
+            line-height: 1.7;
+        }
+
+        /* 경력증명서 썸네일 */
+        .cert-thumb-wrap {
+            margin-top: 16px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+            padding: 10px 14px;
+            border-radius: 12px;
+            background: var(--g50);
+            border: 1px solid #E5E8EB;
+            transition: 0.25s ease;
+        }
+
+        .cert-thumb-wrap:hover {
+            background: rgba(49, 130, 246, 0.06);
+            border-color: rgba(49, 130, 246, 0.25);
+            box-shadow: 0 4px 16px rgba(49, 130, 246, 0.08);
+        }
+
+        .cert-thumb {
+            width: 48px;
+            height: 60px;
+            border-radius: 6px;
+            object-fit: cover;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            flex-shrink: 0;
+        }
+
+        .cert-meta {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .cert-meta .cert-label {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--black);
+        }
+
+        .cert-meta .cert-hint {
+            font-size: 11px;
+            color: var(--g400);
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .cert-meta .cert-hint svg {
+            width: 12px;
+            height: 12px;
+        }
+
+        /* 라이트박스 모달 */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            z-index: 9999;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+            cursor: zoom-out;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .lightbox.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .lightbox img {
+            max-width: 520px;
+            max-height: 85vh;
+            border-radius: 16px;
+            box-shadow: 0 32px 80px rgba(0, 0, 0, 0.3);
+            transform: scale(0.92);
+            transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .lightbox.active img {
+            transform: scale(1);
+        }
+
+        /* ── CONTACT ── */
+        .contact {
+            background: linear-gradient(180deg, #F9F9F9 0%, #D6E9F8 100%);
+            text-align: center;
+        }
+
+        .contact h2 {
+            font-size: clamp(32px, 5vw, 56px);
+            font-weight: 700;
+            line-height: 1.25;
+            margin-bottom: 24px;
+        }
+
+        .contact-sub {
+            font-size: 18px;
+            color: var(--g600);
+            line-height: 1.7;
+            margin-bottom: 48px;
+        }
+
+        /* ── FOOTER ── */
+        footer {
+            background: var(--white);
+            padding: 48px max(24px, 6vw);
+            text-align: center;
+            border-top: 1px solid #F0F0F0;
+        }
+
+        footer p {
+            font-size: 13px;
+            color: var(--g400);
+            line-height: 1.8;
+        }
+
+        /* ── RESPONSIVE (MOBILE FIXES) ── */
+        @media(max-width: 900px) {
+            :root {
+                --sp: 80px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .about-grid,
+            .proj-row {
+                grid-template-columns: 1fr;
+                gap: 48px;
+            }
+
+            /* 모바일에서 이미지 겹침(Absolute) 강제 해제하고, 세로로 예쁘게 정렬 */
+            .proj-visual {
+                min-height: auto;
+                padding: 32px 16px;
+                background: transparent !important;
+                flex-direction: column;
+                gap: 24px;
+                align-items: center;
+            }
+
+            .o-img {
+                position: static !important;
+                width: 100% !important;
+                max-width: 400px;
+                transform: none !important;
+                border-radius: 16px !important;
+            }
+
+            /* 따따, 선배챗 같이 세로로 긴 모바일 화면은 Flex Row Scroll로 보여주거나, 깔끔하게 1~2개만 보이게 등 */
+            .w-tta,
+            .w-sun {
+                display: flex;
+                flex-direction: row;
+                overflow-x: auto;
+                gap: 16px;
+                padding-bottom: 16px;
+                width: 100vw;
+                margin-left: calc(-1 * max(24px, 6vw));
+                padding-left: max(24px, 6vw);
+                padding-right: max(24px, 6vw);
+                scroll-snap-type: x mandatory;
+            }
+
+            .w-tta .o-img,
+            .w-sun .o-img {
+                flex: 0 0 75%;
+                max-width: 320px;
+                scroll-snap-align: center;
+            }
+
+            .w-jo,
+            .w-su {
+                flex-direction: column;
+                display: flex;
+                gap: 16px;
+            }
+
+            .proj.dark-theme {
+                padding: 60px 24px;
+                margin: 0 calc(-1 * max(24px, 6vw)) 80px;
+                width: calc(100% + max(48px, 12vw));
+                border-radius: 0;
+            }
+
+            .cap-grid {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+        }
+
+        /* ── Reveal ── */
+        .rv {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .rv.vis {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAV -->
+    <nav class="nav">
+        <a href="#" class="nav-logo"><span>JH</span> Jung</a>
+        <div class="nav-links">
+            <a href="#about">Story</a>
+            <a href="#projects">Projects</a>
+            <a href="#capabilities">Capabilities</a>
+            <a href="#experience">Experience</a>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-ct rv vis">
+            <div class="hero-label">Data &amp; Product 예비 인재 포트폴리오</div>
+            <h1>끊임없이 도전하고,<br>팀을 <span class="hl">올바른 방향</span>으로</h1>
+            <p class="hero-sub">
+                개인의 뛰어남을 넘어 스스로 먼저 고민하고 팀의 기준을 설계합니다.<br>
+                책임감 있게 행동하며, 묻는 것을 두려워하지 않고 주저 없이 실행합니다.
+            </p>
+            <div class="hero-btns">
+                <a href="#projects" class="btn btn-p">프로젝트 보기</a>
+                <a href="#contact" class="btn btn-s">연락하기</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="sec about" id="about">
+        <div class="inner">
+            <div class="about-grid">
+                <div class="about-img-wrap rv">
+                    <img src="이미지/프로필사진.png" alt="정재훈 프로필 사진">
+                </div>
+                <div class="about-text rv">
+                    <div class="label">My Story</div>
+                    <h2>상대방의 시선에서 먼저,<br>배려로 이끄는 솔선수범</h2>
+                    <p class="desc">
+                        제 이름 <strong>"재훈"</strong>은 '있을 재(在), 가르칠 훈(訓)'이라는 뜻입니다. 배움과 가르침이 있는 곳에 늘 머무르며, 부족한 부분은 인정하고 도리어
+                        발판 삼아 <span class="hi">끊임없이 도전하는 삶</span>을 살고자 합니다.
+                    </p>
+                    <p class="desc">
+                        저는 스스로 타인의 시선과 생각을 너무 의식해 종종 불편함을 느끼곤 했습니다.
+                        하지만 코드를 짜고 기획을 하면서, 이 고민들은 곧 <span class="hi">상대방의 입장에서 먼저 생각하는 강력한 배려심</span>이자 장점이 되었습니다.
+                        '사용자가 이 플로우를 어떻게 느낄까?', '우리 팀 동료가 이 기능을 이해하기 편할까?'를 가장 먼저 묻게 되었기 때문입니다.
+                    </p>
+                    <p class="desc">
+                        결국 가장 중요한 것은 나 혼자 우수하게 일을 마치는 것이 아닙니다.
+                        <span class="hi">"팀이 과연 올바른 방향으로 나아가고 있는가?"</span>입니다.
+                        주저 없이 아이디어를 제시하고 프로세스를 개선하며 늘 먼저 솔선수범하는 예비 인재가 되겠습니다.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="sec projects" id="projects">
+        <div class="inner">
+            <span class="slabel">Projects</span>
+            <h2 class="stitle rv">치열하게 고민해 낸<br>성장의 발자취</h2>
+
+            <!-- ★ 조달머신 -->
+            <div class="proj rv">
+                <div class="proj-row">
+                    <div class="proj-text">
+                        <div class="proj-label">추천시스템 분석 및 설계 &middot; 최우수상</div>
+                        <h3>조달머신</h3>
+                        <p class="proj-sub">상위 노출 편향을 해결한 나라장터 공공 조달 추천시스템</p>
+
+                        <div class="toss-kw">
+                            <span class="tc-b">모델 성능보다 기준 재정의,</span>
+                            <span class="tc-b">빈도 기반 선택 편향의 극복,</span>
+                            <span class="tc-g">공공조달 본질적 가치 최적화.</span>
+                        </div>
+
+                        <div class="detail-blk">
+                            <div class="dl">My Role &amp; Insight</div>
+                            <p>
+                                "가장 먼저 한 일은 모델을 고르는 것이 아니었습니다." 상위 노출 업체에만 구매가 쏠리는 현상이 단순한 빈도의 문제가 아니라 플랫폼의 정책적 특성(의무/우선
+                                구매) 때문임을 간파했습니다. 공공조달의 본질적 가치를 반영한 새로운 평점 체계를 직접 설계하고 가중치를 부여하여, 기존 쏠림 구조를 강화하지 않으면서도
+                                시스템 편향을 근본적으로 개선했습니다. (잠재요인 필터링 RMSE 73% 향상)
+                            </p>
+                        </div>
+                        <div class="proj-links">
+                            <a href="https://github.com/deephoon/JodalMachine" target="_blank">🔍 조달머신 GitHub 확인하기</a>
+                        </div>
+                    </div>
+                    <div class="proj-visual w-jo">
+                        <img src="이미지/조달머신.png" alt="조달머신 화면1" class="o-img i1">
+                        <img src="이미지/조달머신1.png" alt="조달머신 화면2" class="o-img i2">
+                    </div>
+                </div>
+            </div>
+
+            <!-- ★ 선배챗 -->
+            <div class="proj rv">
+                <div class="proj-row">
+                    <div class="proj-text">
+                        <div class="proj-label">AI 서비스 기획 &middot; 우수상</div>
+                        <h3>선배챗</h3>
+                        <p class="proj-sub">단방향 정보 전달의 한계를 넘어선 역질문형 진로 컨설팅 서비스</p>
+
+                        <div class="toss-kw">
+                            <span class="tc-b">질문이 모호한 사용자를 위해,</span>
+                            <span class="tc-b">AI가 맥락을 먼저 묻는 흐름 전환,</span>
+                            <span class="tc-g">단순 정보에서 구체적 행동으로.</span>
+                        </div>
+
+                        <div class="detail-blk">
+                            <div class="dl">My Role &amp; Insight</div>
+                            <p>
+                                진로 탐색은 정보가 부족해서가 아니라, 사용자가 스스로 상태를 정립하지 못해 막힙니다. "GPT가 더 좋은 답을 내게 만드는 것"이 아니라 "AI가 먼저 묻고
+                                맥락을 수집해 상태를 구조화하는 것"으로 관점을 전환했습니다. 20여 가지의 프롬프트 구조화를 통해 단순한 답변 챗봇을 넘어, 사용자의 방향을 먼저 잡고
+                                3개월 단위의 구체적인 행동 로드맵을 제안하는 서비스 흐름 전체를 설계했습니다.
+                            </p>
+                        </div>
+                        <div class="proj-links">
+                            <a href="https://fastcampus.co.kr/gala2024_track1_04" target="_blank">🏆 패스트캠퍼스 GALA 2024
+                                수상작 링크</a>
+                        </div>
+                    </div>
+                    <div class="proj-visual w-sun">
+                        <img src="이미지/선배챗1.png" alt="선배챗 화면1" class="o-img i1">
+                        <img src="이미지/선배챗2.png" alt="선배챗 화면2" class="o-img i2">
+                        <img src="이미지/선배챗3.png" alt="선배챗 화면3" class="o-img i3">
+                    </div>
+                </div>
+            </div>
+
+            <!-- ★ 따따 -->
+            <div class="proj rv">
+                <div class="proj-row">
+                    <div class="proj-text">
+                        <div class="proj-label">크로스플랫폼 프로덕트 리딩 &middot; 최우수상</div>
+                        <h3>따따</h3>
+                        <p class="proj-sub">타인의 시선 없이 온전히 나만의 추억만을 남기는 위치 기반 앱</p>
+
+                        <div class="toss-kw">
+                            <span class="tc-b">단순 기능보다 경험의 반복 설계,</span>
+                            <span class="tc-b">팀의 1,087 커밋을 관통한 기준,</span>
+                            <span class="tc-g">Loading, Empty, Error 합의.</span>
+                        </div>
+
+                        <div class="detail-blk">
+                            <div class="dl">My Role &amp; Collaboration</div>
+                            <p>
+                                개인 기록 서비스가 성공하려면 기능 구현을 넘어 "사용자가 왜 앱에 계속 돌아오는가"라는 리텐션 루프의 설계가 핵심이었습니다. 안드로이드 파트를 이끌며 로그인
+                                및 상태 관리 구조를 구축하는 한편, 8인의 대규모 병렬 협업 시 발생할 수 있는 잠재 마찰을 줄이기 위해 API 명세 문서 규칙과 4가지 주요 상태를
+                                선제적으로 팀과 합의하여 견고한 개발 체계를 일궈냈습니다.
+                            </p>
+                        </div>
+                        <div class="proj-links">
+                            <a href="https://github.com/Ttatta-org/Ttatta_Android?tab=readme-ov-file" target="_blank">💬
+                                GitHub 저장소 보기</a>
+                        </div>
+                    </div>
+                    <div class="proj-visual w-tta">
+                        <img src="이미지/따따.png" alt="따따 화면1" class="o-img i1">
+                        <img src="이미지/따따1.png" alt="따따 화면2" class="o-img i2">
+                        <img src="이미지/따따2.png" alt="따따 화면3" class="o-img i3">
+                    </div>
+                </div>
+            </div>
+
+            <!-- ★ 슈토피아 -->
+            <div class="proj rv">
+                <div class="proj-row">
+                    <div class="proj-text">
+                        <div class="proj-label">AI 아이디어톤 &middot; 최우수상</div>
+                        <h3>슈토피아 (SSU:TOPIA)</h3>
+                        <p class="proj-sub">AI가 주입식이 아닌 학생의 설명을 능동적으로 듣고 성장하는 역학습 구조</p>
+
+                        <div class="toss-kw">
+                            <span class="tc-b">단방향 주입식 방식 탈피,</span>
+                            <span class="tc-b">학생이 AI를 가르치는 역학습,</span>
+                            <span class="tc-g">대화가 곧 다음 경험의 데이터.</span>
+                        </div>
+
+                        <div class="detail-blk">
+                            <div class="dl">My Role &amp; Concept</div>
+                            <p>
+                                더 친절하고 정확하게 설명해 주는 단방향 AI 학습 도구의 한계에 의문을 품었습니다. '설명할 수 있으면 이해한 것이다'는 파인만 학습법을 역발상으로
+                                적용하여, 학생이 시스템 안의 AI 펫을 가르칠수록 AI가 함께 성장하는 '역학습 시스템 아키텍처'를 주도했습니다. 유행하는 스택(GPT, PPO)을 단순히
+                                나열하지 않고, 각 기술이 이 구조 안에서 왜 그 자리에 있어야 하는지 논리적 역할을 우선했습니다.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="proj-visual w-su">
+                        <img src="이미지/슈토피아1.png" alt="슈토피아1" class="o-img i1">
+                        <img src="이미지/슈토피아2.png" alt="슈토피아2" class="o-img i2">
+                        <img src="이미지/슈토피아3.png" alt="슈토피아 최우수상 상장" class="o-img i3">
+                    </div>
+                </div>
+            </div>
+
+            <!-- ★ EV Fault Co-Pilot (다크 섹션) -->
+            <div class="proj dark-theme rv">
+                <div class="inner">
+                    <div class="proj-row" style="align-items:start;">
+                        <div class="proj-text">
+                            <div class="proj-label" style="color:var(--white);">ML 이상 진단 &middot; 대학교 졸업 논문</div>
+                            <h3>EV Fault Co-Pilot</h3>
+                            <p class="proj-sub">전기차 구동계 센서 기반 이상 판별 및 운전자 신뢰 유도 시스템</p>
+
+                            <div class="toss-kw" style="margin-top:32px;">
+                                <span class="tc-b">수치보다 사용자 신뢰 최우선,</span>
+                                <span class="tc-b">설명 계층과 판단 계층의 분리,</span>
+                                <span class="tc-g">안전 시스템의 책임 경계 확립.</span>
+                            </div>
+
+                            <div class="detail-blk">
+                                <div class="dl">My Focus</div>
+                                <p>
+                                    정확도 97%라는 모델의 절대적 수치에 매몰되지 않고 "이 결과를 운전자가 실제로 믿고 행동해도 되는가?"를 끊임없이 물었습니다. Temperature
+                                    Scaling으로 확률의 과신 오류를 극복(ECE 78.8% 개선)했으며, WARNING 상황은 LLM이 설명하지만 CRITICAL 상황에서는 생성형
+                                    AI를 완전히 배제하고 규칙 기반 메시지로 강제 전환하는 안전 시스템의 책임 경계를 직접 확립해 냈습니다.
+                                </p>
+                            </div>
+                            <div class="detail-blk">
+                                <p
+                                    style="font-size:13px; color:var(--g600); border-left:2px solid var(--blue); padding-left:12px; margin-top:24px;">
+                                    * 해당 프로젝트 학위 논문의 PDF 전문은 교내 내부 및 학술 규정상 외부에 공개가 제한되어 있습니다.<br>파이프라인 설계 및 소스 코드의 일부는
+                                    아래 GitHub 링크를 통해 확인해 보실 수 있습니다.
+                                </p>
+                            </div>
+                            <div class="proj-links">
+                                <a href="https://github.com/deephoon/EV-fault-GPT" target="_blank">⚙️ 설계된 ML 파이프라인
+                                    둘러보기</a>
+                            </div>
+                        </div>
+                        <div class="proj-visual" style="flex-direction:column; gap:16px;">
+                            <img src="이미지/EV학위논문.png" alt="EV 논문" style="border-radius:12px; max-width:100%;">
+                            <div style="display:flex; gap:16px; width:100%;">
+                                <img src="이미지/EV.png" alt="EV 시뮬레이터1"
+                                    style="width:48%; border-radius:12px; object-fit:cover;">
+                                <img src="이미지/EV2.png" alt="EV 시뮬레이터2"
+                                    style="width:48%; border-radius:12px; object-fit:cover;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- CAPABILITIES -->
+    <section class="sec caps" id="capabilities">
+        <div class="inner">
+            <span class="slabel">Core Capabilities</span>
+            <h2 class="stitle rv">팀 전체의 진화를 돕는<br>정재훈만의 업무 역량</h2>
+            <div class="cap-grid rv">
+                <div class="capcard">
+                    <div class="cap-ic">&#x1F9E0;</div>
+                    <h3>관행 타파, 그리고 맥락 기반 문제 정의</h3>
+                    <p>
+                        단순히 기계적인 구현이나 기능 추가에 집중하지 않고 본질적으로 무엇이 불편한지 끈질기게 질문합니다.
+                        무엇이 문제인지 명확한 기준을 먼저 세운 후 해결책을 제시합니다.
+                    </p>
+                </div>
+                <div class="capcard">
+                    <div class="cap-ic">&#x1F4AC;</div>
+                    <h3>타인의 관점 체화와 이타적 설계</h3>
+                    <p>
+                        상대방을 의식하던 저의 약점을 뒤집었습니다. 사용자와 동료가 서비스를 접했을 때
+                        어떻게 사용할지 선제적으로 고민하고 마찰 없는 인터페이스를 전개합니다.
+                    </p>
+                </div>
+                <div class="capcard">
+                    <div class="cap-ic">&#x1F527;</div>
+                    <h3>벽을 허무는 빠르고 책임 있는 구현력</h3>
+                    <p>
+                        추천 알고리즘, 공통 이상탐지 ML 모델링은 물론이고 시스템 프론트 설계까지
+                        파이썬과 코틀린 등 툴을 가리지 않고 돌파해 내는 탄탄한 기본기가 있습니다.
+                    </p>
+                </div>
+                <div class="capcard">
+                    <div class="cap-ic">&#x1F465;</div>
+                    <h3>팀워크와 타협을 이끄는 커뮤니케이션</h3>
+                    <p>
+                        이해관계가 다른 팀 파트의 협업 효율을 극대화하기 위해 직접 API 명세 규칙과
+                        디자인 UI 코드를 선언적으로 합의하고 리딩합니다.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section class="sec experience" id="experience">
+        <div class="inner">
+            <span class="slabel">Experiences</span>
+            <h2 class="stitle rv">현장과 조직 운영으로<br>몸소 깨우친 소통의 감각</h2>
+            <div class="exp-grid rv">
+                <div class="ecard">
+                    <div class="ep">2020 &mdash; 2021</div>
+                    <h3>숭실대학교 중앙 밴드 SOMA</h3>
+                    <div class="er">학생회장 직무 역임</div>
+                    <p>
+                        코로나19라는 전례 없던 위기 속에서 강압적인 규칙의 나열보다, 구성원들이 각자 판단해도 서로 같은 방향을 볼 수 있도록 최소한의 '납득 가능한 운영 기준'을 세워 성공적인
+                        대면 무대를 일궈냈습니다.
+                    </p>
+                </div>
+                <div class="ecard">
+                    <div class="ep">2021.07 &mdash; 현재</div>
+                    <h3>명품관 웰커밍 VIP 그리터</h3>
+                    <div class="er">JH Communication</div>
+                    <p>
+                        4년 넘게 고객의 첫 접점을 맡으며 "같은 말도 상태에 따라 다르게 들린다"는 사실을 체화했습니다. 감정과 기대를 현장에서 민감하게 읽어낸 훈련은 훗날 IT 제품의 사용자
+                        맥락을 설계하는 근본적인 역량으로 이어졌습니다.
+                    </p>
+                    <div class="cert-thumb-wrap" onclick="openLightbox('이미지/경력증명서.png')">
+                        <img src="이미지/경력증명서.png" alt="경력증명서" class="cert-thumb">
+                        <div class="cert-meta">
+                            <span class="cert-label">경력증명서</span>
+                            <span class="cert-hint">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path d="M4.75 3A1.75 1.75 0 003 4.75v10.5c0 .966.784 1.75 1.75 1.75h10.5A1.75 1.75 0 0017 15.25V4.75A1.75 1.75 0 0015.25 3H4.75zM8.5 7a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zm5 3.5a.5.5 0 01.09.992L13.5 11.5h-7a.5.5 0 01-.09-.992L6.5 10.5h7z"/></svg>
+                                클릭하여 크게 보기
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="ecard">
+                    <div class="ep">2022.08</div>
+                    <h3>실리콘밸리 연수 AI 인턴십</h3>
+                    <div class="er">인공지능 실무 응용능력 인증 과정</div>
+                    <p>
+                        낯선 온라인 기반 해외 환경 속에서도 인공지능 트렌드의 흡수뿐 아니라 현지의 사고방식과 어우러지는 태도를 배웠습니다. 능동적인 첫 질문과 피드백 과정으로 유연한 다국적 융화
+                        능력을 증명했습니다.
+                    </p>
+                </div>
+                <div class="ecard">
+                    <div class="ep">2025.03 &mdash; 2025.09</div>
+                    <h3>구름톤 유니브 숭실대 (4기)</h3>
+                    <div class="er">전체 부대표 &amp; 안드로이드 파트장</div>
+                    <p>
+                        기획자, 디자이너, 개발자가 함께 움직일 땐 맹목적인 일정보다 공통 언어의 동기화가 먼저입니다. 조직이 반복적으로 굴러갈 수 있는 팀 스터디 흐름 구조를 우선하여 충돌 없는
+                        1년간의 과정을 탄탄히 완수했습니다.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="sec contact" id="contact">
+        <div class="inner">
+            <h2 class="rv">데이터로 파악하고<br>공감으로 이끄는 다음 챕터</h2>
+            <p class="contact-sub rv">
+                숫자 이면의 사용자 맥락을 읽어내고, 가장 효율적인 기준을 세워 팀의 마찰을 줄이는 사람.<br>
+                제품의 가치가 사용자에게 온전히 닿을 때까지 앞장서서 돌파해 내는 데이터 프로덕트 인재가 되겠습니다.
+            </p>
+            <div class="contact-info rv"
+                style="font-size: 18px; color: var(--black); line-height: 1.8; font-weight: 500; display: inline-block; text-align: left; background: var(--white); padding: 24px 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border: 1px solid rgba(0,0,0,0.05);">
+                <p style="margin-bottom: 8px;"><span
+                        style="color:var(--g400); width:60px; display:inline-block;">Email</span> <a
+                        href="mailto:deephoony@gmail.com"
+                        style="color:var(--blue); text-decoration:none;">deephoony@gmail.com</a></p>
+                <p><span style="color:var(--g400); width:60px; display:inline-block;">Phone</span> 010-8104-2425</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>
+            &copy; 2025 정재훈 (Jaehun Jung). All rights reserved.<br>
+            在(있을 재) 訓(가르칠 훈) &mdash; 끊임없이 배움을 쥐고, 나누어 주며, 스스로 부딪히는 인생의 기록장.
+        </p>
+    </footer>
+
+    <!-- 라이트박스 모달 -->
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+        <img id="lightbox-img" src="" alt="확대 이미지">
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const obs = new IntersectionObserver((e) => {
+                e.forEach(x => { if (x.isIntersecting) x.target.classList.add('vis'); });
+            }, { threshold: 0.15 });
+            document.querySelectorAll('.rv').forEach(el => obs.observe(el));
+        });
+
+        function openLightbox(src) {
+            const lb = document.getElementById('lightbox');
+            const img = document.getElementById('lightbox-img');
+            img.src = src;
+            lb.style.display = 'flex';
+            requestAnimationFrame(() => lb.classList.add('active'));
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            const lb = document.getElementById('lightbox');
+            lb.classList.remove('active');
+            setTimeout(() => {
+                lb.style.display = 'none';
+                document.body.style.overflow = '';
+            }, 300);
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeLightbox();
+        });
+    </script>
+</body>
+
+</html>

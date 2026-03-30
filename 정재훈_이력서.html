@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>정재훈 이력서</title>
+<style>
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css');
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --ink: #111111;
+  --ink2: #333D4B;
+  --ink3: #6B7684;
+  --ink4: #8B95A1;
+  --line: #E5E8EB;
+  --bg: #F9FAFB;
+  --surface: #FFFFFF;
+  --blue: #3182F6;
+  --blue-bg: #EBF4FF;
+  --amber: #B8860B;
+  --amber-bg: #FFF8E1;
+  --green: #10B981;
+  --green-bg: #ECFDF5;
+  --purple: #8B5CF6;
+  --purple-bg: #F5F3FF;
+  --red: #EF4444;
+  --red-bg: #FEF2F2;
+}
+
+body {
+  font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  color: var(--ink);
+  background: var(--bg);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ─── Page Container (A4-ish) ─── */
+.page {
+  max-width: 900px;
+  margin: 40px auto;
+  background: var(--surface);
+  border-radius: 16px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 8px 24px rgba(0,0,0,0.04);
+  overflow: hidden;
+}
+
+/* ═══════════════════════════════════════
+   HEADER
+   ═══════════════════════════════════════ */
+.header {
+  padding: 44px 48px 36px;
+  display: flex;
+  align-items: flex-start;
+  gap: 32px;
+}
+.header-text { flex: 1; }
+.header-name {
+  font-size: 36px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  color: var(--ink);
+}
+.header-position {
+  font-size: 14px;
+  color: var(--ink3);
+  margin-top: 8px;
+}
+.header-contact {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 16px;
+  margin-top: 14px;
+  font-size: 13px;
+  color: var(--ink3);
+}
+.header-contact a {
+  color: var(--blue);
+  text-decoration: none;
+}
+.header-contact span.sep { color: var(--line); }
+
+.header-photo {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0;
+  background: var(--bg);
+}
+.header-photo img { width: 100%; height: 100%; object-fit: cover; }
+
+/* ─── Summary ─── */
+.summary {
+  padding: 0 48px 28px;
+  font-size: 14px;
+  color: var(--ink2);
+  line-height: 1.75;
+  border-bottom: 1px solid var(--line);
+}
+
+/* ─── Awards Bar ─── */
+.awards-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 16px 48px;
+  border-bottom: 1px solid var(--line);
+  background: var(--bg);
+}
+.award-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 12px;
+  border-radius: 20px;
+  background: var(--amber-bg);
+  color: var(--amber);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+/* ═══════════════════════════════════════
+   2-COLUMN BODY
+   ═══════════════════════════════════════ */
+.body {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  min-height: 0;
+}
+
+/* ─── Left Column ─── */
+.col-left {
+  padding: 28px 36px 36px 48px;
+  border-right: 1px solid var(--line);
+}
+
+/* ─── Right Column ─── */
+.col-right {
+  padding: 28px 48px 36px 28px;
+}
+
+/* ─── Section Title ─── */
+.sec-title {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin-bottom: 18px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--line);
+}
+
+/* ═══════════════════════════════════════
+   PROJECTS
+   ═══════════════════════════════════════ */
+.project { margin-bottom: 22px; }
+.project:last-child { margin-bottom: 0; }
+.project-header {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 4px;
+}
+.project-name {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--ink);
+}
+.project-dash {
+  font-size: 13px;
+  color: var(--ink3);
+  font-weight: 400;
+}
+.project-award-inline {
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 10px;
+  background: var(--amber-bg);
+  color: var(--amber);
+  white-space: nowrap;
+}
+.project-meta {
+  font-size: 11px;
+  color: var(--ink4);
+  margin-bottom: 6px;
+}
+.project-desc {
+  font-size: 12px;
+  color: var(--ink2);
+  line-height: 1.65;
+}
+.project-desc strong { color: var(--ink); font-weight: 600; }
+
+/* Minor project (1-line) */
+.project-minor {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 6px;
+  font-size: 12px;
+}
+.project-minor .project-name { font-size: 13px; }
+.project-minor .project-meta { margin-bottom: 0; }
+
+/* ═══════════════════════════════════════
+   SKILLS (Pill Tags)
+   ═══════════════════════════════════════ */
+.skill-group { margin-bottom: 16px; }
+.skill-group:last-child { margin-bottom: 0; }
+.skill-group-title {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--ink2);
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.skill-group-dot {
+  width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0;
+}
+.skill-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+.skill-pill {
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 500;
+  background: var(--bg);
+  color: var(--ink2);
+  border: 1px solid var(--line);
+}
+/* Color-coded pills */
+.sp-ai { background: var(--green-bg); border-color: #A7F3D0; color: #065F46; }
+.sp-data { background: var(--purple-bg); border-color: #DDD6FE; color: #5B21B6; }
+.sp-app { background: var(--blue-bg); border-color: #BFDBFE; color: #1E40AF; }
+.sp-collab { background: var(--bg); border-color: var(--line); color: var(--ink3); }
+.sp-creative { background: var(--red-bg); border-color: #FECACA; color: #991B1B; }
+
+/* ═══════════════════════════════════════
+   EXPERIENCE
+   ═══════════════════════════════════════ */
+.exp-item { margin-bottom: 14px; }
+.exp-item:last-child { margin-bottom: 0; }
+.exp-period { font-size: 11px; color: var(--blue); font-weight: 600; }
+.exp-title { font-size: 13px; font-weight: 700; color: var(--ink); margin-top: 2px; }
+.exp-role { font-size: 11px; color: var(--ink4); }
+.exp-desc { font-size: 11px; color: var(--ink3); line-height: 1.55; margin-top: 3px; }
+
+/* ═══════════════════════════════════════
+   EDUCATION
+   ═══════════════════════════════════════ */
+.edu-title { font-size: 13px; font-weight: 700; color: var(--ink); }
+.edu-detail { font-size: 11px; color: var(--ink3); }
+
+/* ═══════════════════════════════════════
+   RESPONSIVE
+   ═══════════════════════════════════════ */
+@media (max-width: 768px) {
+  .page { margin: 0; border-radius: 0; }
+  .body { grid-template-columns: 1fr; }
+  .col-left { border-right: none; border-bottom: 1px solid var(--line); padding: 24px; }
+  .col-right { padding: 24px; }
+  .header { padding: 28px 24px 24px; }
+  .summary { padding: 0 24px 20px; }
+  .awards-bar { padding: 12px 24px; }
+}
+
+/* Print */
+@media print {
+  body { background: white; }
+  .page { box-shadow: none; margin: 0; border-radius: 0; max-width: 100%; }
+}
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- ═══ HEADER ═══ -->
+  <div class="header">
+    <div class="header-text">
+      <div class="header-name">정재훈</div>
+      <div class="header-position">AI / ML Engineer · Android Developer</div>
+      <div class="header-contact">
+        <a href="mailto:deephoony@gmail.com">deephoony@gmail.com</a>
+        <span class="sep">|</span>
+        010-8104-2425
+        <span class="sep">|</span>
+        <a href="https://github.com/deephoony" target="_blank">github.com/deephoony</a>
+      </div>
+    </div>
+    <div class="header-photo">
+      <img src="이미지/프로필사진.png" alt="정재훈">
+    </div>
+  </div>
+
+  <!-- ═══ SUMMARY ═══ -->
+  <div class="summary">
+    추천시스템·LLM 서비스·EV 이상 진단 파이프라인을 직접 설계·구현하며 AI/ML 기술을 사용자 문제 해결 구조로 연결해왔습니다.
+    구름톤 유니브 부대표·SOMA 회장 경험을 바탕으로, 다른 관점을 가진 팀원과 기준을 맞추고 실행을 완수하는 방식으로 일합니다.
+  </div>
+
+  <!-- ═══ AWARDS BAR ═══ -->
+  <div class="awards-bar">
+    <span class="award-pill">★ 조달청 공공 빅데이터 최우수상</span>
+    <span class="award-pill">★ 패스트캠퍼스 GALA 2024 우수상</span>
+    <span class="award-pill">★ UMC 7기 데모데이 최우수상</span>
+    <span class="award-pill">★ 숭실대 AI 아이디어톤 최우수상</span>
+  </div>
+
+  <!-- ═══ 2-COLUMN BODY ═══ -->
+  <div class="body">
+
+    <!-- ─── LEFT: PROJECTS ─── -->
+    <div class="col-left">
+      <div class="sec-title">Projects</div>
+
+      <!-- 조달머신 -->
+      <div class="project">
+        <div class="project-header">
+          <span class="project-name">조달머신</span>
+          <span class="project-dash">— 나라장터 공공조달 추천시스템</span>
+        </div>
+        <div class="project-meta">2022.03 – 04 · 4인 팀 · 데이터 분석 · 추천시스템 설계</div>
+        <div class="project-desc">
+          잠재요인 협업 필터링 <strong>RMSE 0.21</strong> (아이템 기반 대비 <strong>73% 향상</strong>).
+          기존 구매빈도 기반 평점이 상위 노출 편향을 재생산하는 문제를 파악하고,
+          의무구매(+10)·우선구매(+1) 정책 반영형 평점 체계를 직접 설계.
+          10개 세부 품목 교차 검증으로 구조적 적합성 확인.
+        </div>
+      </div>
+
+      <!-- EV Fault Co-Pilot -->
+      <div class="project">
+        <div class="project-header">
+          <span class="project-name">EV Fault Co-Pilot</span>
+          <span class="project-dash">— PMSM 구동계 이상 진단 시스템</span>
+        </div>
+        <div class="project-meta">2025.03 – 06 · 졸업논문 단독 · ML 시스템 설계 · End-to-End</div>
+        <div class="project-desc">
+          1D-CNN <strong>Accuracy 0.9765</strong>. Temperature Scaling <strong>ECE 78.8% 개선</strong>.
+          "이 판단을 사람이 믿고 행동해도 되는가"를 핵심 기준으로,
+          Calibration·Grad-CAM·LLM 설명 계층까지 포함한 End-to-End 파이프라인 설계.
+          CRITICAL 위험도에서는 GPT를 배제하고 규칙 기반으로 전환하는 책임 설계 적용.
+        </div>
+      </div>
+
+      <!-- 선배챗 -->
+      <div class="project">
+        <div class="project-header">
+          <span class="project-name">선배챗</span>
+          <span class="project-dash">— GPT 기반 진로 컨설팅</span>
+        </div>
+        <div class="project-meta">2024.11 – 2025.01 · 3인 팀 · AI 서비스 기획 · 프롬프트 설계</div>
+        <div class="project-desc">
+          세부 지침 프롬프트 <strong>20개</strong>, 유즈케이스 <strong>3건</strong> 검증 완료.
+          "좋은 답변은 좋은 질문 구조에서 시작된다" — AI가 먼저 묻고 맥락을 수집한 뒤
+          3개월 단위 실행 로드맵을 제안하는 양방향 구조를 설계.
+        </div>
+      </div>
+
+      <!-- 따따 -->
+      <div class="project">
+        <div class="project-header">
+          <span class="project-name">따따 (CCI)</span>
+          <span class="project-dash">— 위치 기반 추억 기록 앱</span>
+        </div>
+        <div class="project-meta">2024.12 – 2025.02 · 8인 팀 · Android 개발 · Kotlin · 플레이스토어 출시</div>
+        <div class="project-desc">
+          <strong>Gitflow 1,087 커밋</strong> 협업. 카카오 SDK 로그인 플로우 전체 구현(인증→토큰→세션).
+          StateFlow 기반 자동 재발급 구조. UI 상태를 Loading/Empty/Error/Success 4가지로 사전 합의.
+          API 명세 규칙 직접 제안, 멀티모듈 아키텍처 구성 참여.
+        </div>
+      </div>
+
+      <!-- 슈토피아 (축소) -->
+      <div class="project-minor">
+        <span class="project-name">슈토피아</span>
+        <span class="project-dash">— 역학습 AI 플랫폼 · ★ 숭실대 AI 아이디어톤 최우수상 · 기획 단계</span>
+      </div>
+
+    </div>
+
+    <!-- ─── RIGHT COLUMN ─── -->
+    <div class="col-right">
+
+      <!-- SKILLS -->
+      <div class="sec-title">Skills</div>
+
+      <div class="skill-group">
+        <div class="skill-group-title">
+          <div class="skill-group-dot" style="background:var(--green);"></div>
+          AI / ML & LLM
+        </div>
+        <div class="skill-pills">
+          <span class="skill-pill sp-ai">Python</span>
+          <span class="skill-pill sp-ai">PyTorch</span>
+          <span class="skill-pill sp-ai">TensorFlow</span>
+          <span class="skill-pill sp-ai">Recommendation System</span>
+          <span class="skill-pill sp-ai">LLM Service Design</span>
+          <span class="skill-pill sp-ai">Prompt Engineering</span>
+          <span class="skill-pill sp-ai">Time-series Modeling</span>
+          <span class="skill-pill sp-ai">Explainable AI</span>
+          <span class="skill-pill sp-ai">Model Calibration</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-title">
+          <div class="skill-group-dot" style="background:var(--purple);"></div>
+          Data Processing & Model Ops
+        </div>
+        <div class="skill-pills">
+          <span class="skill-pill sp-data">Pandas</span>
+          <span class="skill-pill sp-data">Scikit-learn</span>
+          <span class="skill-pill sp-data">XGBoost</span>
+          <span class="skill-pill sp-data">OpenCV</span>
+          <span class="skill-pill sp-data">Streamlit</span>
+          <span class="skill-pill sp-data">LangChain</span>
+          <span class="skill-pill sp-data">Vector Retrieval</span>
+          <span class="skill-pill sp-data">Docker</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-title">
+          <div class="skill-group-dot" style="background:var(--blue);"></div>
+          Product / App Engineering
+        </div>
+        <div class="skill-pills">
+          <span class="skill-pill sp-app">Android</span>
+          <span class="skill-pill sp-app">Kotlin</span>
+          <span class="skill-pill sp-app">Java</span>
+          <span class="skill-pill sp-app">Jetpack Compose</span>
+          <span class="skill-pill sp-app">MVVM</span>
+          <span class="skill-pill sp-app">Hilt</span>
+          <span class="skill-pill sp-app">REST API</span>
+          <span class="skill-pill sp-app">UI State Design</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-title">
+          <div class="skill-group-dot" style="background:var(--ink4);"></div>
+          Collaboration Tools
+        </div>
+        <div class="skill-pills">
+          <span class="skill-pill sp-collab">Notion</span>
+          <span class="skill-pill sp-collab">Slack</span>
+          <span class="skill-pill sp-collab">Discord</span>
+          <span class="skill-pill sp-collab">Git / GitHub</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-title">
+          <div class="skill-group-dot" style="background:var(--red);"></div>
+          Creative / Design Tools
+        </div>
+        <div class="skill-pills">
+          <span class="skill-pill sp-creative">Figma</span>
+          <span class="skill-pill sp-creative">Photoshop</span>
+          <span class="skill-pill sp-creative">Final Cut Pro</span>
+          <span class="skill-pill sp-creative">Logic Pro</span>
+        </div>
+      </div>
+
+      <!-- EXPERIENCE -->
+      <div class="sec-title" style="margin-top: 28px;">Experience</div>
+
+      <div class="exp-item">
+        <div class="exp-period">2025.03 – 09</div>
+        <div class="exp-title">구름톤 유니브 숭실대 4기</div>
+        <div class="exp-role">전체 부대표 / Android 파트장</div>
+        <div class="exp-desc">카카오 x 구름 주관. 회칙·스터디 방식 설계, FE/BE/디자인 멀티 파트 조율, 1년 완수.</div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-period">2020 – 21</div>
+        <div class="exp-title">숭실대 SOMA 회장</div>
+        <div class="exp-role">학생회 운영</div>
+        <div class="exp-desc">코로나 상황에서 공연 운영 기준을 처음부터 설계해 완수.</div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-period">2021.07 – 현재</div>
+        <div class="exp-title">백화점 웰커밍 그리터</div>
+        <div class="exp-role">JH Communication</div>
+        <div class="exp-desc">4년간 초면 고객 맥락 파악, 상황 적응형 응대.</div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-period">2022.08</div>
+        <div class="exp-title">Silicon Valley AI Internship</div>
+        <div class="exp-role">AI 응용 능력 인증 2급</div>
+      </div>
+
+      <!-- EDUCATION -->
+      <div class="sec-title" style="margin-top: 28px;">Education</div>
+      <div class="edu-title">숭실대학교</div>
+      <div class="edu-detail">전자정보공학부 IT융합전공 · 2026년 8월 졸업 예정</div>
+
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
