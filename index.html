@@ -860,15 +860,40 @@
   <script>
     // Reveal Animations
     document.addEventListener('DOMContentLoaded', () => {
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if(entry.isIntersecting) {
-            entry.target.classList.add('in');
-          }
-        });
-      }, { threshold: 0.1, rootMargin: "0px 0px -10% 0px" });
+      const revealEls = Array.from(document.querySelectorAll('.reveal'));
+      const reveal = el => el.classList.add('in');
 
-      document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+      // Reveal anything already in or above the viewport.
+      // This guarantees nothing stays invisible after an anchor/hash jump
+      // (e.g. clicking a project card that scrolls deep into a section).
+      const revealInView = () => {
+        revealEls.forEach(el => {
+          if (el.classList.contains('in')) return;
+          const r = el.getBoundingClientRect();
+          if (r.top < window.innerHeight * 0.95 && r.bottom > 0) reveal(el);
+        });
+      };
+
+      if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              reveal(entry.target);
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0, rootMargin: "0px 0px -5% 0px" });
+        revealEls.forEach(el => observer.observe(el));
+      } else {
+        revealEls.forEach(reveal);
+      }
+
+      // Fallbacks so a fragment jump never leaves a section blank.
+      revealInView();
+      window.addEventListener('scroll', revealInView, { passive: true });
+      window.addEventListener('load', revealInView);
+      window.addEventListener('hashchange', () => setTimeout(revealInView, 50));
+      [100, 300, 600, 1000].forEach(t => setTimeout(revealInView, t));
     });
   </script>
 </body>
