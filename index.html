@@ -357,6 +357,22 @@
     <h2 class="section-title">Selected Works</h2>
     
     <div class="proj-grid">
+      <!-- added: Gochida Project Card -->
+      <a href="#detail-gochida" class="proj-card">
+        <div class="proj-img-wrap">
+          <img src="images/gochida1.png" alt="Gochida AI repair request app" class="proj-img" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 400 300\'%3E%3Crect width=\'400\' height=\'300\' fill=\'%23e5e7eb\'/%3E%3C/svg%3E'">
+        </div>
+        <div class="proj-body">
+          <div class="proj-meta">
+            <h3 class="proj-title">고치다 (Gochida)</h3>
+            <span class="proj-num">001</span>
+          </div>
+          <div class="proj-tags">
+            <span class="tag">AI Product</span><span class="tag">Gemini</span><span class="tag">React Native</span><span class="tag">Service Flow</span>
+          </div>
+        </div>
+      </a>
+
       <!-- EV Fault -->
       <a href="#detail-ev" class="proj-card">
         <div class="proj-img-wrap">
@@ -365,7 +381,7 @@
         <div class="proj-body">
           <div class="proj-meta">
             <h3 class="proj-title">EV Fault Co-Pilot</h3>
-            <span class="proj-num">001</span>
+            <span class="proj-num">002</span>
           </div>
           <div class="proj-tags">
             <span class="tag">AI Reliability</span><span class="tag">Calibration</span><span class="tag">Mobility</span>
@@ -381,7 +397,7 @@
         <div class="proj-body">
           <div class="proj-meta">
             <h3 class="proj-title">선배챗</h3>
-            <span class="proj-num">002</span>
+            <span class="proj-num">003</span>
           </div>
           <div class="proj-tags">
             <span class="tag">LLM UX</span><span class="tag">Prompt Structure</span><span class="tag">Career</span>
@@ -397,7 +413,7 @@
         <div class="proj-body">
           <div class="proj-meta">
             <h3 class="proj-title">따따 (Ttatta)</h3>
-            <span class="proj-num">003</span>
+            <span class="proj-num">004</span>
           </div>
           <div class="proj-tags">
             <span class="tag">Android</span><span class="tag">Retention</span><span class="tag">API Spec</span>
@@ -413,7 +429,7 @@
         <div class="proj-body">
           <div class="proj-meta">
             <h3 class="proj-title">조달머신</h3>
-            <span class="proj-num">004</span>
+            <span class="proj-num">005</span>
           </div>
           <div class="proj-tags">
             <span class="tag">Recommendation</span><span class="tag">Data Labeling</span><span class="tag">Public Data</span>
@@ -429,7 +445,7 @@
         <div class="proj-body">
           <div class="proj-meta">
             <h3 class="proj-title">슈토피아</h3>
-            <span class="proj-num">005</span>
+            <span class="proj-num">006</span>
           </div>
           <div class="proj-tags">
             <span class="tag">AI Agent</span><span class="tag">Learning UX</span><span class="tag">MVP Roadmap</span>
@@ -445,7 +461,7 @@
         <div class="proj-body">
           <div class="proj-meta">
             <h3 class="proj-title">Tomato Focus Ritual</h3>
-            <span class="proj-num">006</span>
+            <span class="proj-num">007</span>
           </div>
           <!-- content refined -->
           <div class="proj-tags">
@@ -461,7 +477,40 @@
     <h2 class="section-title">Deep Dive</h2>
     
     <div class="details-list">
-      
+
+      <!-- added: Gochida Deep Dive -->
+      <div id="detail-gochida" class="detail-item">
+        <div class="d-head">
+          <div class="d-role">AI Product / React Native / Gemini Multimodal / Service Flow</div>
+          <div class="d-name">고치다 (Gochida)</div>
+        </div>
+        <div class="d-grid">
+          <div class="d-content">
+            <div class="d-lbl">WHY — 왜 시작했나</div>
+            <div class="d-val">집수리나 생활시공이 필요한 상황에서 사용자는 문제를 눈으로는 알지만, 이를 어떤 공종으로 부르고 어떤 전문가에게 설명해야 하는지 모르는 경우가 많습니다. 같은 “물이 새요”라는 증상도 배관, 방수, 타일 등 서로 다른 전문가가 필요할 수 있고, 비용 감각이나 위험도 기준이 없어 견적을 받아도 판단하기 어렵습니다. 고치다는 이 정보 비대칭을 줄이기 위해 기획한 사진 기반 AI 생활시공 요청 앱입니다.</div>
+
+            <div class="d-lbl">DECISION — 어떤 판단을 했나</div>
+            <div class="d-val">단순히 전문가를 연결하는 매칭 앱이 아니라, 사용자의 사진과 간단한 입력을 전문가가 이해할 수 있는 구조화된 요청서로 바꾸는 흐름을 먼저 설계했습니다. AI가 공종 분류, 위험도 판단, 비용 감각, 자가 점검 가이드, 전문가용 요청서 초안을 생성하고, 사용자는 이를 검토한 뒤 여러 전문가의 응답을 같은 기준으로 비교하도록 구성했습니다.</div>
+
+            <div class="d-lbl">BUILD — 무엇을 만들었나</div>
+            <div class="d-val">React Native와 Expo 기반으로 사진 업로드, 위치·증상 선택, Gemini 2.5 Flash 멀티모달 분석, 요청서 검토, 전문가 응답 비교, 전문가 상세, 상담 준비, 1:1 채팅까지 이어지는 핵심 플로우를 설계했습니다. AI 응답은 13개 필드로 구조화하고, SUCCESS/REJECTED, API 타임아웃, Rate Limit, Mock fallback 등 예외 상황까지 고려했습니다.</div>
+
+            <div class="d-lbl">OUTCOME — 결과는 어땠나</div>
+            <div class="d-val">현재 앱은 사용자 요청 시작부터 AI 분석, 요청서 검토, 전문가 비교, 상담 준비, 채팅까지 전체 핵심 흐름을 실행할 수 있는 모바일 프로토타입으로 구성되었습니다. 전문가 응답과 채팅은 로컬 Mock과 전역 상태를 활용해 데모 가능한 수준으로 구현했고, 실제 백엔드 연동, 실시간 채팅, 푸시 알림은 다음 단계로 분리했습니다.</div>
+
+            <div class="d-lbl">LEARNED — 무엇을 배웠나</div>
+            <div class="d-val">AI 서비스에서 중요한 것은 분석 결과 자체보다, 그 결과가 사용자와 전문가가 함께 이해할 수 있는 기준으로 바뀌는 과정이라는 점을 배웠습니다. 사진 한 장을 공종, 위험도, 비용 감각, 요청서, 상담 메시지로 전환하는 구조를 설계하면서 AI가 실제 서비스 운영을 어떻게 자동화할 수 있는지 구체적으로 확인했습니다.</div>
+          </div>
+          <div class="d-media">
+            <div class="d-gallery">
+              <img src="images/gochida1.png" alt="Gochida home screen and upload flow" class="d-img-main" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 400 300\'%3E%3Crect width=\'400\' height=\'300\' fill=\'%23e5e7eb\'/%3E%3C/svg%3E'">
+              <img src="images/gochida2.png" alt="Gochida AI analysis and expert comparison" class="d-img-sub" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 400 300\'%3E%3Crect width=\'400\' height=\'300\' fill=\'%23e5e7eb\'/%3E%3C/svg%3E'">
+            </div>
+            <div class="d-media-caption">사진 기반 AI 분석에서 전문가 상담까지 이어지는 생활시공 요청 플로우</div>
+          </div>
+        </div>
+      </div>
+
       <!-- EV Fault Details -->
       <div id="detail-ev" class="detail-item">
         <div class="d-head">
@@ -724,22 +773,26 @@
       <div class="cap-box">
         <div class="cap-icon">03</div>
         <h3 class="cap-title">Data Definition</h3>
-        <p class="cap-desc">모델을 고르기 전에 데이터가 무엇을 의미하는지, 어떤 라벨·평가 기준·신뢰 기준이 필요한지 먼저 정의합니다.</p>
+        <!-- content refined -->
+        <p class="cap-desc">모델을 고르기 전에 데이터가 무엇을 의미하는지, 어떤 필드·평가 기준·신뢰 기준이 필요한지 먼저 정의합니다.</p>
       </div>
       <div class="cap-box">
         <div class="cap-icon">04</div>
-        <h3 class="cap-title">LLM Interaction</h3>
-        <p class="cap-desc">LLM이 바로 답하지 않고, 사용자 맥락을 수집하고 정리한 뒤 실행 가능한 결과를 제안하도록 질문 흐름과 출력 구조를 설계합니다.</p>
+        <!-- content refined -->
+        <h3 class="cap-title">LLM / Multimodal Interaction</h3>
+        <p class="cap-desc">LLM과 멀티모달 AI가 사용자 입력을 어떻게 해석하고, 어떤 구조화된 결과로 반환해야 하는지 질문 흐름과 출력 스키마를 설계합니다.</p>
       </div>
       <div class="cap-box">
         <div class="cap-icon">05</div>
-        <h3 class="cap-title">Rapid Prototyping</h3>
-        <p class="cap-desc">기획 문서에서 멈추지 않고 Android, Streamlit, Web UI 등으로 작동하는 형태를 빠르게 만들어 가설을 확인합니다.</p>
+        <!-- content refined -->
+        <h3 class="cap-title">Rapid Prototyping &amp; UX State</h3>
+        <p class="cap-desc">기획 문서에서 멈추지 않고 React Native, Streamlit, Web UI 등으로 작동하는 형태를 빠르게 만들고, Loading·Empty·Error·Success 상태까지 설계합니다.</p>
       </div>
       <div class="cap-box">
         <div class="cap-icon">06</div>
-        <h3 class="cap-title">AI Communication &amp; Creative Direction</h3>
-        <p class="cap-desc">복잡한 AI 개념과 결과를 사용자가 이해할 수 있는 메시지·사례·시각적 흐름으로 바꿉니다. Jae Me 활동을 통해 AI로 생성한 장면을 카피·사운드·릴스·브랜드 경험으로 확장하며 콘텐츠 기획력과 전달 구조 설계 감각을 키워왔습니다.</p>
+        <!-- content refined -->
+        <h3 class="cap-title">AI Communication &amp; Trust Design</h3>
+        <p class="cap-desc">AI 결과가 사용자의 행동으로 이어지려면 설명 구조와 신뢰 기준이 필요하다고 봅니다. Jae Me와 고치다 경험을 통해 AI 결과를 사람이 이해하고 판단할 수 있는 메시지와 UX로 바꾸는 감각을 키웠습니다.</p>
       </div>
     </div>
   </section>
